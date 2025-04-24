@@ -8,6 +8,7 @@ import { ChatMessage } from "./chat-message"
 import { ChatInput } from "./chat-input"
 import { useChat } from "./chat-context"
 import Image from "next/image"
+import { Badge } from "@/components/ui/badge"
 
 interface ChatProps {
   initiallyExpanded?: boolean
@@ -96,12 +97,15 @@ export function Chat({ initiallyExpanded = false }: ChatProps) {
       {isExpanded && (
         <Card className="fixed bottom-4 right-4 z-50 shadow-lg w-[90%] md:w-[450px] h-[600px] overflow-hidden transition-all duration-300 ease-in-out">
           <CardHeader className="p-4 flex flex-row items-center justify-between border-b bg-gradient-to-r from-indigo-600 to-violet-600 text-white">
-            <CardTitle className="text-lg font-semibold flex items-center gap-2">
-              <div className="relative w-6 h-6 mr-1">
-                <Image src="/images/apna-coding-logo.png" alt="Apna Chat" fill className="object-contain" />
-              </div>
-              Apna Chat Bot
-            </CardTitle>
+            <div className="flex items-center">
+              <CardTitle className="text-lg font-semibold flex items-center gap-2">
+                <div className="relative w-6 h-6 mr-1">
+                  <Image src="/images/apna-coding-logo.png" alt="Apna Chat" fill className="object-contain" />
+                </div>
+                Apna Chat Bot
+              </CardTitle>
+              <Badge className="ml-2 bg-white/20 text-white hover:bg-white/30">Local Model</Badge>
+            </div>
             <div className="flex items-center gap-1">
               <Button
                 variant="ghost"

@@ -22,6 +22,9 @@ export function ApnaChatSection() {
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             My AI-powered chatbot for personalized assistance
           </p>
+          <Badge className="mt-2 bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300">
+            Powered by Local AI
+          </Badge>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -39,22 +42,18 @@ export function ApnaChatSection() {
               provides personalized guidance and support.
             </p>
             <p className="text-gray-700 dark:text-gray-300">
-              Apna Chat Bot provides advanced natural language understanding, real-time reasoning, and deep contextual
-              awareness, making it the perfect assistant for users seeking guidance. With my custom AI solution, I've
-              been able to:
+              Apna Chat Bot uses a specialized local AI model trained on my specific knowledge domains, providing
+              natural language understanding, contextual awareness, and personalized responses. With my custom AI
+              solution, I've been awareness, and personalized responses. With my custom AI solution, I've been able to:
             </p>
 
             <ul className="space-y-2 list-disc pl-5 text-gray-700 dark:text-gray-300">
               <li>
-                Train the chatbot on specific datasets related to my niche (e.g., education, career counseling,
-                ecommerce, etc.).
+                Create a chatbot with domain-specific knowledge about education, career counseling, and technology
               </li>
-              <li>Ensure accuracy and context in conversations with domain-specific knowledge.</li>
-              <li>Integrate the bot seamlessly into my website for a unified user experience.</li>
-              <li>
-                Scale the solution for different use cases—customer support, career counseling, content generation, or
-                personal assistance.
-              </li>
+              <li>Ensure accurate and helpful responses even without external API dependencies</li>
+              <li>Integrate the bot seamlessly into my website for a unified user experience</li>
+              <li>Provide personalized assistance for visitors interested in my ventures and services</li>
             </ul>
 
             <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-lg border border-indigo-100 dark:border-indigo-800">
@@ -132,7 +131,7 @@ export function ApnaChatSection() {
                   <h4 className="font-semibold mb-2">Technologies Used:</h4>
                   <div className="flex flex-wrap gap-2">
                     <Badge className="bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300">
-                      Custom AI
+                      Local AI
                     </Badge>
                     <Badge className="bg-violet-100 text-violet-800 dark:bg-violet-900/30 dark:text-violet-300">
                       Next.js

@@ -1,12 +1,10 @@
 import { type NextRequest, NextResponse } from "next/server"
 
-// The API key
-const OPENAI_API_KEY =
-  process.env.OPENAI_API_KEY ||
-  "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"
+// DeepSeek API key
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || "sk-db96c1699d0448d3ba95f776e4547fb8"
 
-// OpenAI API endpoint
-const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
+// DeepSeek API endpoint
+const DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,7 +12,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
 
     // Log what we received
-    console.log("Received request body:", JSON.stringify(body))
+    console.log("Received request body for DeepSeek:", JSON.stringify(body))
 
     // Extract messages, ensuring we have a valid array
     const messages = Array.isArray(body.messages) ? body.messages : []
@@ -27,7 +25,7 @@ export async function POST(request: NextRequest) {
         const role = typeof msg.role === "string" ? msg.role : "user"
         const content = typeof msg.content === "string" ? msg.content : ""
 
-        // Ensure role is valid for OpenAI
+        // Ensure role is valid for DeepSeek
         const validRole = ["system", "user", "assistant"].includes(role) ? role : "user"
 
         return { role: validRole, content }
@@ -43,69 +41,65 @@ export async function POST(request: NextRequest) {
       })
     }
 
-    // Log what we're sending to OpenAI
-    console.log("Sending to OpenAI:", JSON.stringify(safeMessages))
+    // Log what we're sending to DeepSeek
+    console.log("Sending to DeepSeek:", JSON.stringify(safeMessages))
 
     // If we have no valid messages, return a default response
     if (safeMessages.length < 2) {
       // Need at least system + user message
       return NextResponse.json({
-        response: "Hello! I'm Apna Chat Bot. How can I help you today?",
+        response: "Hello! I'm Apna Chat Bot powered by DeepSeek. How can I help you today?",
       })
     }
 
-    // Prepare the request to OpenAI
-    const openAIRequest = {
-      model: "gpt-3.5-turbo",
+    // Prepare the request to DeepSeek
+    const deepseekRequest = {
+      model: "deepseek-chat", // Using a default model, adjust as needed
       messages: safeMessages,
       temperature: 0.7,
       max_tokens: 1000,
     }
 
-    // Call the OpenAI API directly using fetch
-    const openAIResponse = await fetch(OPENAI_API_URL, {
+    // Call the DeepSeek API directly using fetch
+    const deepseekResponse = await fetch(DEEPSEEK_API_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${OPENAI_API_KEY}`,
+        Authorization: `Bearer ${DEEPSEEK_API_KEY}`,
       },
-      body: JSON.stringify(openAIRequest),
+      body: JSON.stringify(deepseekRequest),
     })
 
-    // Parse the OpenAI response
-    const openAIData = await openAIResponse.json()
+    // Parse the DeepSeek response
+    const deepseekData = await deepseekResponse.json()
 
-    // Log the response from OpenAI
-    console.log("OpenAI response:", JSON.stringify(openAIData))
+    // Log the response from DeepSeek
+    console.log("DeepSeek response:", JSON.stringify(deepseekData))
 
     // Check if the response is valid
-    if (openAIResponse.ok && openAIData.choices && openAIData.choices[0]?.message?.content) {
+    if (deepseekResponse.ok && deepseekData.choices && deepseekData.choices[0]?.message?.content) {
       return NextResponse.json({
-        response: openAIData.choices[0].message.content,
+        response: deepseekData.choices[0].message.content,
       })
     } else {
-      // If OpenAI returns an error, log it and check for quota error
-      console.error("OpenAI API error:", openAIData)
+      // If DeepSeek returns an error, log it and return a fallback response
+      console.error("DeepSeek API error:", deepseekData)
 
-      // Check for insufficient quota error
-      const errorMessage = openAIData.error?.message || ""
-      const errorType = openAIData.error?.type || ""
-      const isQuotaExceeded =
-        errorType === "insufficient_quota" ||
-        errorMessage.includes("exceeded your current quota") ||
-        errorMessage.includes("billing details")
+      // Check for insufficient balance error
+      const errorMessage = deepseekData.error?.message || ""
+      const isInsufficientBalance = errorMessage.includes("Insufficient Balance")
 
       return NextResponse.json({
-        response: isQuotaExceeded
-          ? "I'm switching to a local AI model to continue assisting you."
+        response: isInsufficientBalance
+          ? "I'm switching to an alternative AI model to better assist you."
           : "I'm having trouble connecting to my knowledge base right now. Could you please try again in a moment?",
-        error: openAIData.error?.message || "Unknown OpenAI API error",
-        quotaExceeded: isQuotaExceeded,
+        error: deepseekData.error?.message || "Unknown DeepSeek API error",
+        insufficientBalance: isInsufficientBalance,
       })
     }
   } catch (error) {
     // Log any errors that occur
-    console.error("Error in OpenAI API route:", error)
+    console.error("Error in DeepSeek API route:", error)
 
     // Return a fallback response
     return NextResponse.json({
