@@ -16,6 +16,10 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "Shriyash Soni | Entrepreneur | Coder | Counsellor | Musician",
   description: "Portfolio of Shriyash Soni - Founder of Apna Counsellor, Apna Coding, and ThriftFlex",
+  icons: {
+    icon: "/images/icon.png",
+    apple: "/images/icon.png",
+  },
     generator: 'v0.dev'
 }
 
