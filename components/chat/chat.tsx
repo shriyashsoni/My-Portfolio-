@@ -78,7 +78,7 @@ export function Chat({ initiallyExpanded = false }: ChatProps) {
           <div
             className={`relative w-10 h-10 transition-transform duration-300 ${isButtonHovered ? "scale-110" : "scale-100"}`}
           >
-            <Image src="/images/apna-coding-logo.png" alt="Apna Chat" fill className="object-contain" />
+            <Image src="/images/apna-bot-icon.png" alt="Apna Chat" fill className="object-contain" />
           </div>
 
           {/* Notification dot for new messages */}
@@ -100,7 +100,7 @@ export function Chat({ initiallyExpanded = false }: ChatProps) {
             <div className="flex items-center">
               <CardTitle className="text-lg font-semibold flex items-center gap-2">
                 <div className="relative w-6 h-6 mr-1">
-                  <Image src="/images/apna-coding-logo.png" alt="Apna Chat" fill className="object-contain" />
+                  <Image src="/images/apna-bot-icon.png" alt="Apna Chat" fill className="object-contain" />
                 </div>
                 Apna Chat Bot
               </CardTitle>

@@ -33,7 +33,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
     >
       {!isUser && (
         <Avatar className="h-8 w-8 bg-gradient-to-br from-indigo-500 to-violet-500 p-0.5 animate-pulse-slow">
-          <AvatarImage src="/images/apna-coding-logo.png" alt="Apna Chat Bot" />
+          <AvatarImage src="/images/apna-bot-icon.png" alt="Apna Chat Bot" />
           <AvatarFallback className="bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300">
             <Bot className="h-4 w-4" />
           </AvatarFallback>
