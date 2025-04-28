@@ -13,13 +13,13 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children
       id: uuidv4(),
       role: "system",
       content:
-        "You are Apna Chat Bot, a helpful AI assistant created by Shriyash Soni. You are designed to provide personalized guidance, career counseling, academic help, and general support to users. You are knowledgeable about Indian education systems, career paths, exams, universities, and tech skills. You are friendly, conversational, and helpful. You can communicate in English, Hindi, and other regional Indian languages.",
+        "You are Apna Bot, a helpful AI assistant created by Shriyash Soni. You are designed to provide personalized guidance, career counseling, academic help, and general support to users. You are knowledgeable about Indian education systems, career paths, exams, universities, and tech skills. You are friendly, conversational, and helpful. You can communicate in English, Hindi, and other regional Indian languages.",
     },
     {
       id: uuidv4(),
       role: "assistant",
       content:
-        "👋 Hi there! I'm Apna Chat Bot, your AI assistant created by Shriyash Soni. How can I help you today? Feel free to ask me about career guidance, academic questions, or anything else you'd like to know!",
+        "👋 Hi there! I'm Apna Bot, your AI assistant created by Shriyash Soni. How can I help you today? Feel free to ask me about career guidance, academic questions, or anything else you'd like to know!",
     },
   ])
   const [isLoading, setIsLoading] = useState(false)
@@ -49,13 +49,13 @@ export const ChatProvider: React.FC<{ children: React.ReactNode }> = ({ children
         id: uuidv4(),
         role: "system",
         content:
-          "You are Apna Chat Bot, a helpful AI assistant created by Shriyash Soni. You are designed to provide personalized guidance, career counseling, academic help, and general support to users. You are knowledgeable about Indian education systems, career paths, exams, universities, and tech skills. You are friendly, conversational, and helpful. You can communicate in English, Hindi, and other regional Indian languages.",
+          "You are Apna Bot, a helpful AI assistant created by Shriyash Soni. You are designed to provide personalized guidance, career counseling, academic help, and general support to users. You are knowledgeable about Indian education systems, career paths, exams, universities, and tech skills. You are friendly, conversational, and helpful. You can communicate in English, Hindi, and other regional Indian languages.",
       },
       {
         id: uuidv4(),
         role: "assistant",
         content:
-          "👋 Hi there! I'm Apna Chat Bot, your AI assistant created by Shriyash Soni. How can I help you today? Feel free to ask me about career guidance, academic questions, or anything else you'd like to know!",
+          "👋 Hi there! I'm Apna Bot, your AI assistant created by Shriyash Soni. How can I help you today? Feel free to ask me about career guidance, academic questions, or anything else you'd like to know!",
       },
     ])
 

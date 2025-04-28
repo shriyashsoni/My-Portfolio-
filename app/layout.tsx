@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     icon: "/images/icon.png",
     apple: "/images/icon.png",
   },
+  authors: [{ name: "Shriyash Soni" }],
+  creator: "Shriyash Soni",
+  publisher: "Shriyash Soni",
     generator: 'v0.dev'
 }
 

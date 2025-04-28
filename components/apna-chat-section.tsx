@@ -4,7 +4,8 @@ import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Bot, Brain, MessageSquare, Zap, Globe, Sparkles } from "lucide-react"
+import { Brain, MessageSquare, Zap, Globe, Sparkles } from "lucide-react"
+import Image from "next/image"
 
 export function ApnaChatSection() {
   return (
@@ -17,13 +18,13 @@ export function ApnaChatSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Apna Chat</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Apna Bot</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-violet-500 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             My AI-powered chatbot for personalized assistance
           </p>
           <Badge className="mt-2 bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300">
-            Powered by Local AI
+            By Shriyash Soni
           </Badge>
         </motion.div>
 
@@ -42,9 +43,9 @@ export function ApnaChatSection() {
               provides personalized guidance and support.
             </p>
             <p className="text-gray-700 dark:text-gray-300">
-              Apna Chat Bot uses a specialized local AI model trained on my specific knowledge domains, providing
-              natural language understanding, contextual awareness, and personalized responses. With my custom AI
-              solution, I've been awareness, and personalized responses. With my custom AI solution, I've been able to:
+              Apna Bot uses a specialized local AI model trained on my specific knowledge domains, providing natural
+              language understanding, contextual awareness, and personalized responses. With my custom AI solution, I've
+              been able to:
             </p>
 
             <ul className="space-y-2 list-disc pl-5 text-gray-700 dark:text-gray-300">
@@ -62,8 +63,8 @@ export function ApnaChatSection() {
                 Try It Yourself!
               </h4>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Apna Chat Bot is live on this website! Look for the chat icon in the bottom right corner of your screen
-                to start a conversation.
+                Apna Bot is live on this website! Look for the chat icon in the bottom right corner of your screen to
+                start a conversation.
               </p>
               <p className="text-gray-700 dark:text-gray-300">
                 Ask about career guidance, academic help, or just chat about anything you'd like to know!
@@ -80,8 +81,8 @@ export function ApnaChatSection() {
             <Card className="bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 border-2 border-indigo-200 dark:border-indigo-800 overflow-hidden">
               <CardContent className="p-8">
                 <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center">
-                    <Bot className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
+                  <div className="w-24 h-24 relative">
+                    <Image src="/images/apna-bot-icon.png" alt="Apna Bot" fill className="object-contain" />
                   </div>
                 </div>
 
@@ -162,7 +163,7 @@ export function ApnaChatSection() {
                       }
                     }}
                   >
-                    <MessageSquare className="mr-2 h-4 w-4" /> Try Apna Chat Now
+                    <MessageSquare className="mr-2 h-4 w-4" /> Try Apna Bot Now
                   </Button>
                 </div>
               </CardContent>
